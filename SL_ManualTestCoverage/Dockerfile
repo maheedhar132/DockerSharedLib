@@ -34,4 +34,7 @@ RUN mv Game/client/sl_build Game/client/build
 
 
 ##Run the application
-RUN cd Game && npm start
+RUN npm install forever -g
+RUN forever -v
+RUN if forever list | grep 'sl'; then forever stop sl; fi
+RUN cd Game && forever start -a --uid sl -c 'npm start' ./
