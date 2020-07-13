@@ -27,6 +27,7 @@ RUN export SL_BUILD_SESSION_ID=`cat buildSessionId`
 RUN cd Game/client &&  npm install
 RUN cd Game &&  npm install
 RUN cd Game/client &&  npm run build
+RUN cp ./buildSessionId ./Game/client
 RUN cd Game/client && ./node_modules/.bin/slnodejs build --tokenfile node_sltoken.txt --buildsessionidfile buildSessionId --instrumentForBrowsers  --workspacepath build --outputpath sl_build --scm none
 RUN mv Game/client/build Game/client/old_build
 RUN mv Game/client/sl_build Game/client/build
