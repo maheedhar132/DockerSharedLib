@@ -9,6 +9,9 @@ EXPOSE 5030
 ##Copy
 COPY node_sltoken.txt .
 
+##InstallGit
+RUN apk add git
+
 ##Git clone
 RUN rm -rf Game; git clone https://github.com/maheedhar132/Game.git
 
