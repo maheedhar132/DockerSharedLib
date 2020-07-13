@@ -18,14 +18,14 @@ RUN rm -rf Game; git clone https://github.com/maheedhar132/Game.git
 ##Build agent
 RUN cd Game &&  npm i slnodejs
 RUN cd Game/client &&  npm i slnodejs
-RUN ./Game/node_modules/.bin/slnodejs config --tokenfile node_sltoken.txt --appname 'ManualTest' --branch 'test' --build '${Build_Number}'
+RUN ./Game/node_modules/.bin/slnodejs config --tokenfile ./node_sltoken.txt --appname 'ManualTest' --branch 'test' --build '${Build_Number}'
 RUN export SL_BUILD_SESSION_ID=`cat buildSessionId`
 
 ##Build
 RUN cd Game/client &&  npm install
 RUN cd Game &&  npm install
 RUN cd Game/client &&  npm run build
-RUN cd Game/client && ./node_modules/.bin/slnodejs build --tokenfile node_sltoken.txt --buildsessionidfile buildSessionId --instrumentForBrowsers  --workspacepath build --outputpath sl_build --scm none
+RUN cd Game/client && ./node_modules/.bin/slnodejs build --tokenfile ./node_sltoken.txt --buildsessionidfile buildSessionId --instrumentForBrowsers  --workspacepath build --outputpath sl_build --scm none
 RUN mv Game/client/build Game/client/old_build
 RUN mv Game/client/sl_build Game/client/build
 
