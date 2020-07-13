@@ -19,7 +19,7 @@ RUN rm -rf Game; git clone https://github.com/maheedhar132/Game.git
 ##Build agent
 RUN cd Game &&  npm i slnodejs
 RUN cd Game/client &&  npm i slnodejs
-RUN ./Game/node_modules/.bin/slnodejs config --token nodetoken --appname 'ManualTest' --branch 'test' --build ${Build_Number}
+RUN ./Game/node_modules/.bin/slnodejs config --token nodetoken --appname 'ManualTest' --branch 'test' --build date
 RUN export SL_BUILD_SESSION_ID=`cat buildSessionId`
 
 ##Build
