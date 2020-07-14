@@ -7,7 +7,7 @@ FROM node:alpine3.10
 EXPOSE 5030
 
 ##Copy
-COPY node_sltoken.txt .
+COPY /home/ec2-user/environment/node_sltoken.txt .
 
 
 ##InstallGit
@@ -22,7 +22,7 @@ RUN cd Game/client &&  npm i slnodejs
 RUN cp ./node_sltoken.txt ./Game/client
 ARG BUILD_NUMBER
 ENV buildNumber=$BUILD_NUMBER
-RUN "./Game/node_modules/.bin/slnodejs config --tokenfile node_sltoken.txt --appname 'ManualTest' --branch 'test' --build $buildNumber" "buildNumber" 
+RUN ["./Game/node_modules/.bin/slnodejs config --tokenfile node_sltoken.txt --appname 'ManualTest' --branch 'test' --build $buildNumber" "buildNumber"] 
 RUN export SL_BUILD_SESSION_ID=`cat buildSessionId`
 
 ##Build
