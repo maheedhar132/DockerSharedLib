@@ -22,7 +22,7 @@ RUN cd Game/client &&  npm i slnodejs
 RUN cp ./node_sltoken.txt ./Game/client
 ARG BUILD_NUMBER
 ENV buildNumber=$BUILD_NUMBER
-RUN ./Game/node_modules/.bin/slnodejs config --tokenfile node_sltoken.txt --appname 'ManualTest' --branch 'test' --build $buildNumber
+RUN ./Game/node_modules/.bin/slnodejs config --tokenfile node_sltoken.txt --appname 'ManualTest' --branch 'test' --build $BUILD_NUMBER
 RUN export SL_BUILD_SESSION_ID=`cat buildSessionId`
 
 ##Build
