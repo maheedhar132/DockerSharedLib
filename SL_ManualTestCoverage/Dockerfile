@@ -7,7 +7,7 @@ FROM node:alpine3.10
 EXPOSE 5030
 
 ##Copy
-COPY /home/ec2-user/environment/node_sltoken.txt .
+COPY node_sltoken.txt .
 
 
 ##InstallGit
